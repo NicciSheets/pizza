@@ -17,18 +17,18 @@ puts pizza_order(pizza_quantity, pizza_crust, pizza_toppings)
 def crust_price(pizza_crust,pizza_quantity)
 	"pizza_crust#{pizza_crust}"
 	"pizza_quantity#{pizza_quantity}"
-	pizza_crust = ["pan crust", "hand tossed"]
+	#pizza_crust = ["pan crust", "hand tossed"]
 	if pizza_crust == "pan crust"
-		pizza_quantity*3.00
-	else pizza_crust == "hand tossed"
-		pizza_quantity*2.00
+		return pizza_quantity*3.00
+	else 
+		return pizza_quantity*2.00
 	end
 end
 
 def toppings_price(pizza_toppings,pizza_quantity)
 	"pizza_toppings#{pizza_toppings}"
 	"pizza_quantity#{pizza_quantity}"
-	pizza_toppings = ["pepperoni", "sausage", "ham", "bacon", "green peppers", "banana peppers", "olives", "mushrooms", "onions", "pineapple" ,"extra cheese"]
+	#pizza_toppings = ["pepperoni", "sausage", "ham", "bacon", "green peppers", "banana peppers", "olives", "mushrooms", "onions", "pineapple" ,"extra cheese"]
 	if pizza_toppings == "pepperoni"
 		pizza_quantity*0.50
 	elsif pizza_toppings == "sausage"
@@ -49,7 +49,7 @@ def toppings_price(pizza_toppings,pizza_quantity)
 		pizza_quantity*0.25
 	elsif pizza_toppings == "pineapple"
 		pizza_quantity*1.00
-	else pizza_toppings == "extra cheese"
+	else 
 		pizza_quantity*1.00
 	end
 end
