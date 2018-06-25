@@ -29,28 +29,14 @@ def toppings_price(pizza_toppings,pizza_quantity)
 	"pizza_toppings#{pizza_toppings}"
 	"pizza_quantity#{pizza_quantity}"
 	#pizza_toppings = ["pepperoni", "sausage", "ham", "bacon", "green peppers", "banana peppers", "olives", "mushrooms", "onions", "pineapple" ,"extra cheese"]
-	if pizza_toppings == "pepperoni"
+	if pizza_toppings == "pepperoni" || "sausage"
 		pizza_quantity*0.50
-	elsif pizza_toppings == "sausage"
-		pizza_quantity*0.50
-	elsif pizza_toppings == "ham"
+	elsif pizza_toppings == "ham" || "bacon"  
 		pizza_quantity*0.75
-	elsif pizza_toppings == "bacon"
-		pizza_quantity*0.75
-	elsif pizza_toppings == "green peppers"
-		pizza_quantity*0.25
-	elsif pizza_toppings == "banana peppers"
-		pizza_quantity*0.25
-	elsif pizza_toppings == "olives"
-		pizza_quantity*0.25
-	elsif pizza_toppings == "mushrooms"
-		pizza_quantity*0.25
-	elsif pizza_toppings == "onions"
-		pizza_quantity*0.25
-	elsif pizza_toppings == "pineapple"
+	elsif pizza_toppings == "pineapple" || "extra cheese"
 		pizza_quantity*1.00
-	else 
-		pizza_quantity*1.00
+	else pizza_toppings == "green peppers" || "banana peppers" || "olives" || "mushrooms" || "onions"
+		pizza_quantity*0.25
 	end
 end
 
