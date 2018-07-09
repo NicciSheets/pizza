@@ -30,10 +30,16 @@ end
 
 #crust_subtotal(pizza_crust)
 
-def pizza_toppings_split(pizza_toppings)
-	pizza_toppings.split
+
+def pizza_toppings_split(pizza_toppings) ####I need to do a regex here to take out any punctuation such as commas that user may input************************
+	pizza_toppings.split(/\W/i)
 end
 
+#def pizza_toppings_nopunct(pizza_toppings)
+p pizza_toppings_split(pizza_toppings)
+#end
+
+#puts pizza_toppings_nopunct(pizza_toppings)
 #p pizza_toppings_split(pizza_toppings)
 
 # def toppings_choices(pizza_toppings) 
@@ -87,7 +93,7 @@ def toppings(pizza_toppings)
 	pizza_toppings = "#{pizza_toppings}"
 	toppings_price = {"pepperoni" => 0.50, "sausage" => 0.50, "ham" => 0.75, "bacon" => 0.75, "pineapple" => 1.00, "extra cheese" => 1.00, "green peppers" => 0.25, "banana peppers" => 0.25, "mushrooms" => 0.25, "olives" => 0.25, "onions" => 0.25 }
 	toppings_subtotal = 0
-	pizza_toppings_split(pizza_toppings).each do |topping|
+	pizza_toppings_split(pizza_toppings).each  do |topping|
 		toppings_subtotal = toppings_price.values_at(topping)
 		empty << toppings_subtotal
 	end
