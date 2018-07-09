@@ -28,7 +28,7 @@ def crust_subtotal(pizza_crust)
 	crust_subtotal_arr.to_i
 end
 
-crust_subtotal(pizza_crust)
+#crust_subtotal(pizza_crust)
 
 def pizza_toppings_split(pizza_toppings)
 	pizza_toppings.split
@@ -94,12 +94,18 @@ def toppings(pizza_toppings)
 	empty
 end
 
-toppings(pizza_toppings)
+def subtotal_array(pizza_toppings, pizza_crust)
+	subtotal_array = []
+	subtotal_array << toppings(pizza_toppings) << crust_subtotal(pizza_crust)
+	subtotal_array
+end
 
-subtotal_array = []
-subtotal_array << toppings(pizza_toppings) << crust_subtotal(pizza_crust)
+#toppings(pizza_toppings)
 
-p subtotal_array
+#subtotal_array = []
+#subtotal_array << toppings(pizza_toppings) << crust_subtotal(pizza_crust)
+
+p subtotal_array(pizza_toppings, pizza_crust)
 
 #def total_price(toppings_subtotal, crust_subtotal, pizza_quantity)
 # 	"toppings_subtotal = #{toppings_subtotal}"
