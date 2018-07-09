@@ -28,7 +28,7 @@ def crust_subtotal(pizza_crust)
 	crust_subtotal_arr.to_i
 end
 
-puts crust_subtotal(pizza_crust)
+crust_subtotal(pizza_crust)
 
 def pizza_toppings_split(pizza_toppings)
 	pizza_toppings.split
@@ -86,13 +86,20 @@ def toppings(pizza_toppings)
 	empty = []
 	pizza_toppings = "#{pizza_toppings}"
 	toppings_price = {"pepperoni" => 0.50, "sausage" => 0.50, "ham" => 0.75, "bacon" => 0.75, "pineapple" => 1.00, "extra cheese" => 1.00, "green peppers" => 0.25, "banana peppers" => 0.25, "mushrooms" => 0.25, "olives" => 0.25, "onions" => 0.25 }
+	toppings_subtotal = 0
 	pizza_toppings_split(pizza_toppings).each do |topping|
-		empty << toppings_price.values_at(topping)
+		toppings_subtotal = toppings_price.values_at(topping)
+		empty << toppings_subtotal
 	end
 	empty
 end
 
-puts toppings(pizza_toppings)
+toppings(pizza_toppings)
+
+subtotal_array = []
+subtotal_array << toppings(pizza_toppings) << crust_subtotal(pizza_crust)
+
+p subtotal_array
 
 #def total_price(toppings_subtotal, crust_subtotal, pizza_quantity)
 # 	"toppings_subtotal = #{toppings_subtotal}"
