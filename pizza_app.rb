@@ -19,9 +19,9 @@ def crust_subtotal(pizza_crust)
 	crust_subtotal_arr = []
 	crust_subtotal = 0
 	if pizza_crust == "pan crust"
-		return crust_subtotal = 3.00
+		return crust_subtotal = 8.00
 	else 
-		return crust_subtotal = 2.00
+		return crust_subtotal = 6.00
 		crust_subtotal_arr << crust_subtotal
 	end
 	crust_subtotal_arr.to_s 
@@ -55,14 +55,31 @@ def subtotal_array(pizza_toppings, pizza_crust)
 	subtotal_arr.flatten.sum
 end
 
+puts "Will this be delivery or pick up?  We charge 5 dollars for delivery."
+delivery_option = gets.chomp
 
-def total(pizza_toppings, pizza_crust, pizza_quantity)
+
+def delivery(delivery_option)
+	delivery_arr = []
+	charge = 0
+	if delivery_option == "delivery"
+		charge += 5.00
+	else 
+		charge = 0.00
+	end
+	charge
+end
+
+
+
+
+def final_total(pizza_toppings, pizza_crust, pizza_quantity, delivery_option)
 	total_arr = []
 	taxes = 0.06
 	total_arr = subtotal_array(pizza_toppings, pizza_crust) * pizza_quantity.to_f
-	tax_total = total_arr * taxes
-	total = "#{total_arr + tax_total}" 
+	tax_and_delivery = total_arr * taxes + delivery(delivery_option)
+	total = "#{total_arr + tax_and_delivery}"
 	"Your total will be $#{total}, with tax.  Thank you for your order!"
 end
 
-puts total(pizza_toppings, pizza_crust, pizza_quantity)
+puts final_total(pizza_toppings, pizza_crust, pizza_quantity, delivery_option)
