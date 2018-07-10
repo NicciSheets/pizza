@@ -28,7 +28,7 @@ def crust_subtotal(pizza_crust)
 	crust_subtotal_arr.to_s 
 	crust_subtotal_arr.join
 end
-puts crust_subtotal(pizza_crust)
+#puts crust_subtotal(pizza_crust)
 #crust_subtotal(pizza_crust)
 
 
@@ -104,34 +104,21 @@ end
 
 
 def subtotal_array(pizza_toppings, pizza_crust)
-subtotal_arr = []
-subtotal_arr = [*[*toppings(pizza_toppings)],*[crust_subtotal(pizza_crust)]] 
-subtotal_arr.flatten
+	subtotal_arr = []
+	subtotal_arr = [[toppings(pizza_toppings)], [crust_subtotal(pizza_crust)]] 
+	subtotal_arr.flatten.sum
 end
 
-#toppings(pizza_toppings)
+#p subtotal_array(pizza_toppings, pizza_crust)
 
-#subtotal_array = []
-#subtotal_array << toppings(pizza_toppings) << crust_subtotal(pizza_crust)
 
-p subtotal_array(pizza_toppings, pizza_crust)
+def total(pizza_toppings, pizza_crust, pizza_quantity)
+	total_arr = []
+	taxes = 0.06
+	total_arr = subtotal_array(pizza_toppings, pizza_crust) * pizza_quantity.to_f
+	tax_total = total_arr * taxes
+	total = "#{total_arr + tax_total}" 
+	"Your total will be $#{total}, with tax.  Thank you for your order!"
+end
 
-#def total_price(toppings_subtotal, crust_subtotal, pizza_quantity)
-# 	"toppings_subtotal = #{toppings_subtotal}"
-# 	"crust_subtotal = #{crust_subtotal}"
-# 	"pizza_quantity = #{pizza_quantity}"
-# 	empty = []
-# 	empty2 = []
-# 	empty << "#{toppings_subtotal*pizza_quantity}" 
-# 	empty2 << "#{crust_subtotal*pizza_quantity}"
-# 	total = []
-# 	total << "#{empty+empty2}"
-# 	"Your total is #{total}.  Thank you!"
-# end
-	
-
-# puts total_price(toppings, crust_price)
-#puts "Your subtotal is #{crust_price(pizza_crust,pizza_quantity)} plus #{toppings_price(pizza_toppings,pizza_quantity)
-#}.
-
-#puts total_price(pizza_toppings,pizza_crust, pizza_quantity)
+puts total(pizza_toppings, pizza_crust, pizza_quantity)
