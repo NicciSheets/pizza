@@ -25,18 +25,19 @@ def crust_subtotal(pizza_crust)
 		return crust_subtotal = 2.00
 		crust_subtotal_arr << crust_subtotal
 	end
-	crust_subtotal_arr.to_i
+	crust_subtotal_arr.to_s 
+	crust_subtotal_arr.join
 end
-
+puts crust_subtotal(pizza_crust)
 #crust_subtotal(pizza_crust)
 
 
 def pizza_toppings_split(pizza_toppings) ####I need to do a regex here to take out any punctuation such as commas that user may input************************
-	pizza_toppings.split(/\W/i)
+	pizza_toppings.split
 end
 
 #def pizza_toppings_nopunct(pizza_toppings)
-p pizza_toppings_split(pizza_toppings)
+#p pizza_toppings_split(pizza_toppings)
 #end
 
 #puts pizza_toppings_nopunct(pizza_toppings)
@@ -100,10 +101,12 @@ def toppings(pizza_toppings)
 	empty
 end
 
+
+
 def subtotal_array(pizza_toppings, pizza_crust)
-	subtotal_array = []
-	subtotal_array << toppings(pizza_toppings) << crust_subtotal(pizza_crust)
-	subtotal_array
+subtotal_arr = []
+subtotal_arr = [*[*toppings(pizza_toppings)],*[crust_subtotal(pizza_crust)]] 
+subtotal_arr.flatten
 end
 
 #toppings(pizza_toppings)
